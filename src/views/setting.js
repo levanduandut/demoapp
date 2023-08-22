@@ -6,8 +6,10 @@ import {
   TouchableOpacity,
   Text,
 } from 'react-native';
+import {useSelector} from 'react-redux';
 
 const Setting = ({navigation}) => {
+  const info = useSelector(state => state.personalInfo);
   return (
     <SafeAreaView style={{flex: 1}}>
       {/* <View
@@ -52,6 +54,10 @@ const Setting = ({navigation}) => {
           }}>
           <Text style={{color: 'white', fontWeight: 'bold'}}>Đăng xuất</Text>
         </TouchableOpacity>
+        <Text>Email : {info.email}</Text>
+        <Text>Score : {info.score}</Text>
+        <Text>Address :{info.address}</Text>
+        <Text>Id : {info.id}</Text>
       </View>
     </SafeAreaView>
   );

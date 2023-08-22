@@ -1,14 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
   Text,
+  TextInput,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
+import {useDispatch, useSelector} from 'react-redux';
+import {updateEmail} from '../redux/actions/updateAction';
 
 const Home = ({route, navigation}) => {
   // const {email} = route.params;
+  const [text, setText] = useState('');
+  const info = useSelector(state => state.personalInfo);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(JSON.stringify(info));
+  });
   return (
     <SafeAreaView style={{flex: 1}}>
       {/* <View
@@ -53,6 +63,30 @@ const Home = ({route, navigation}) => {
           }}>
           <Text style={{color: 'white', fontWeight: 'bold'}}>Setting</Text>
           {/* <Text>Email : {email}</Text> */}
+        </TouchableOpacity>
+        <Text>Email : {info.email}</Text>
+        <Text>Score : {info.score}</Text>
+        <Text>Address :{info.address}</Text>
+        <Text>Id : {info.id}</Text>
+
+        <TextInput
+          style={{height: 50, width: 100, borderWidth: 1}}
+          onChangeText={setText}
+          value={text}
+        />
+        <TouchableOpacity
+          onPress={() => dispatch(updateEmail(text))}
+          style={{
+            backgroundColor: '#38c741',
+            width: '50%',
+            height: 50,
+            borderColor: 'white',
+            borderWidth: 1,
+            borderRadius: 10,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Text style={{color: 'white', fontWeight: 'bold'}}>Update</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
