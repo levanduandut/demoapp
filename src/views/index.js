@@ -8,8 +8,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Provider} from 'react-redux';
-import {store} from '../redux/store';
-
+import {store, persistor} from '../redux/store';
+import {PersistGate} from 'redux-persist/integration/react';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 function MyTabs() {
@@ -42,18 +42,20 @@ function MyTabs() {
 export default RootComponent = function () {
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Login"
-          screenOptions={{
-            headerShown: false,
-          }}>
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Setting" component={Setting} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="HomeTabs" component={MyTabs} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <PersistGate loading={null} persistor={persistor}>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Login"
+            screenOptions={{
+              headerShown: false,
+            }}>
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Setting" component={Setting} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="HomeTabs" component={MyTabs} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PersistGate>
     </Provider>
   );
 };

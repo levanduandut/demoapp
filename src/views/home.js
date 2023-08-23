@@ -18,7 +18,7 @@ const Home = ({route, navigation}) => {
   const dispatch = useDispatch();
   useEffect(() => {
     console.log(JSON.stringify(info));
-  });
+  }, []);
   return (
     <SafeAreaView style={{flex: 1}}>
       {/* <View
