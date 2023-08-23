@@ -27,7 +27,7 @@ const Anim = () => {
                     // easing: Easing.bezier(.33, .5, .9, .2).
 
                     //Nay le
-                    easing: Easing.bounce
+                    easing: Easing
 
 
                 }

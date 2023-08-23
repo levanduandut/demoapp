@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -16,10 +16,25 @@ import {
   useColorScheme,
 } from 'react-native';
 import RootComponent from './src/views/index';
+import { Alert } from 'react-native';
+import messaging from '@react-native-firebase/messaging';
+import { getToken, notificationListen, requestUserPermission } from './src/untils/nocation';
 
 
 export default function App() {
   const isDarkMode = useColorScheme() === 'dark';
+  useEffect(() => {
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+    });
+
+    return unsubscribe;
+  }, []);
+  useEffect(() => {
+    requestUserPermission();
+    notificationListen();
+    getToken();
+  }, [])
 
   return (
     <RootComponent />

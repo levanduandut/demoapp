@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   StyleSheet,
@@ -8,10 +8,13 @@ import {
   TextInput,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {useDispatch, useSelector} from 'react-redux';
-import {updateEmail} from '../redux/actions/updateAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateEmail } from '../redux/actions/updateAction';
+import { notificationListen, onDisplayNotification } from '../untils/nocation';
+import notifee from '@notifee/react-native';
 
-const Home = ({route, navigation}) => {
+
+const Home = ({ route, navigation }) => {
   // const {email} = route.params;
   const [text, setText] = useState('');
   const info = useSelector(state => state.personalInfo);
@@ -20,7 +23,7 @@ const Home = ({route, navigation}) => {
     console.log(JSON.stringify(info));
   }, []);
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{ flex: 1 }}>
       {/* <View
         style={{
           height: '8%',
@@ -48,9 +51,9 @@ const Home = ({route, navigation}) => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Text style={{fontWeight: 'bold'}}>Home Screen</Text>
+        <Text style={{ fontWeight: 'bold' }}>Home Screen</Text>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Setting')}
+          onPress={() => onDisplayNotification("Mot hai ba", "Ba hai moi  ")}
           style={{
             backgroundColor: '#38c741',
             width: '50%',
@@ -61,7 +64,7 @@ const Home = ({route, navigation}) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Text style={{color: 'white', fontWeight: 'bold'}}>Setting</Text>
+          <Text style={{ color: 'white', fontWeight: 'bold' }}>Setting</Text>
           {/* <Text>Email : {email}</Text> */}
         </TouchableOpacity>
         <Text>Email : {info.email}</Text>
@@ -70,7 +73,7 @@ const Home = ({route, navigation}) => {
         <Text>Id : {info.id}</Text>
 
         <TextInput
-          style={{height: 50, width: 100, borderWidth: 1}}
+          style={{ height: 50, width: 100, borderWidth: 1 }}
           onChangeText={setText}
           value={text}
         />
@@ -86,7 +89,7 @@ const Home = ({route, navigation}) => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Text style={{color: 'white', fontWeight: 'bold'}}>Update</Text>
+          <Text style={{ color: 'white', fontWeight: 'bold' }}>Update</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

@@ -74,28 +74,32 @@ const Anim2 = () => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={{ flex: 1, borderWidth: 3, borderColor: 'red', justifyContent: 'center', alignItems: 'center' }}>
-                <Animated.View style={{ transform: [{ rotate: spin }], marginTop: topMoniton, width: 150, height: 150 }}>
-                    <Image source={require('../images/bell.webp')} resizeMode='stretch' style={{ width: 150, height: 150 }} />
-                </Animated.View>
-                <Animated.View style={{
-                    position: 'absolute',
-                    // bottom: motion,
-                }}>
-                    <TouchableOpacity
-                        onPress={() => clickStartStop(isStart)}
-                        style={{
-                            backgroundColor: '#38c741',
-                            width: 300,
-                            height: 50,
-                            borderColor: 'white',
-                            borderWidth: 1,
-                            borderRadius: 10,
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}>
-                        <Text style={{ color: 'white', fontWeight: 'bold' }}>Stop - Start</Text>
-                    </TouchableOpacity>
-                </Animated.View>
+                <View style={{ flex: 6, borderWidth: 2 }}>
+                    <Animated.View style={{ transform: [{ rotate: spin }], marginTop: topMoniton, width: 150, height: 150 }}>
+                        <Image source={require('../images/bell.webp')} resizeMode='stretch' style={{ width: 150, height: 150 }} />
+                    </Animated.View></View>
+                <View style={{ flex: 6, borderWidth: 1 }}>
+                    <Animated.View style={{
+                        position: 'absolute',
+                        // bottom: motion,
+                    }}>
+                        <TouchableOpacity
+                            onPress={() => clickStartStop(isStart)}
+                            style={{
+                                backgroundColor: '#38c741',
+                                width: 300,
+                                height: 50,
+                                borderColor: 'white',
+                                borderWidth: 1,
+                                borderRadius: 10,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}>
+                            <Text style={{ color: 'white', fontWeight: 'bold' }}>Stop - Start</Text>
+                        </TouchableOpacity>
+                    </Animated.View>
+                </View>
+
 
             </View>
         </SafeAreaView>

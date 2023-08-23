@@ -21,7 +21,7 @@ const middleware = [thunk];
 export const store = createStore(
   persistedReducer,
   applyMiddleware(...middleware),
-);
+);  
 
 // Tạo persisted store để sử dụng cho Redux Persist
 export const persistor = persistStore(store);
