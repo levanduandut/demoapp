@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import { store, persistor } from '../redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import Anim from './animation';
+import Anim2 from './animation2';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 function MyTabs() {
@@ -46,6 +47,15 @@ function MyTabs() {
           },
         }}
       />
+      <Tab.Screen
+        name="Anim2"
+        component={Anim2}
+        options={{
+          tabBarIcon: () => {
+            <Icon name="rocket" size={30} color="#900" />;
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 }
@@ -55,7 +65,7 @@ export default RootComponent = function () {
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
           <Stack.Navigator
-            initialRouteName="Anim"
+            initialRouteName="HomeTabs"
             screenOptions={{
               headerShown: false,
             }}>
@@ -63,6 +73,7 @@ export default RootComponent = function () {
             <Stack.Screen name="Setting" component={Setting} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="Anim" component={Anim} />
+            <Stack.Screen name="Anim2" component={Anim2} />
             <Stack.Screen name="HomeTabs" component={MyTabs} />
           </Stack.Navigator>
         </NavigationContainer>
