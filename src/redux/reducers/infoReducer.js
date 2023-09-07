@@ -6,7 +6,7 @@ export const CAP_NHAT_ID = 'CAP_NHAT_ID';
 const initialState = {
   email: '',
   score: 0,
-  address: '',
+  address: 'Nghe An',
   id: '',
 };
 
@@ -20,7 +20,7 @@ export default function actionForReducer(state = initialState, payload) {
     case 'CAP_NHAT_ID':
       return {
         ...state,
-        email: payload.id,
+        id: payload.id,
       };
     case 'CAP_NHAT_DIEM':
       return {

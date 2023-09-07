@@ -28,7 +28,7 @@ export const getToken = async () => {
     const token = await messaging().getToken();
     console.log('----------------')
     console.log(token);
-    console.log('==========================')
+    console.log('==========================');
 }
 export async function requestUserPermission() {
     const authStatus = await messaging().requestPermission();

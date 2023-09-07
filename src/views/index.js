@@ -31,28 +31,28 @@ function MyTabs() {
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({ color }) => tabBarIconComponent('laptop', color),
+          tabBarIcon: ({ color }) => tabBarIconComponent('home', color),
         }}
       />
       <Tab.Screen
         name="Settings"
         component={Setting}
         options={{
-          tabBarIcon: ({ color }) => tabBarIconComponent('laptop', color),
+          tabBarIcon: ({ color }) => tabBarIconComponent('gear', color),
         }}
       />
       <Tab.Screen
         name="Anim"
         component={Anim}
         options={{
-          tabBarIcon: ({ color }) => tabBarIconComponent('laptop', color),
+          tabBarIcon: ({ color }) => tabBarIconComponent('bookmark', color),
         }}
       />
       <Tab.Screen
         name="Anim2"
         component={Anim2}
         options={{
-          tabBarIcon: ({ color }) => tabBarIconComponent('laptop', color),
+          tabBarIcon: ({ color }) => tabBarIconComponent('magnet', color),
         }}
       />
     </Tab.Navigator>
@@ -69,11 +69,7 @@ export default RootComponent = function () {
             screenOptions={{
               headerShown: false,
             }}>
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="Setting" component={Setting} />
             <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="Anim" component={Anim} />
-            <Stack.Screen name="Anim2" component={Anim2} />
             <Stack.Screen name="HomeTabs" component={MyTabs} />
           </Stack.Navigator>
         </NavigationContainer>

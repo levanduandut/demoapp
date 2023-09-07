@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateEmail } from '../redux/actions/updateAction';
 import { notificationListen, onDisplayNotification } from '../untils/nocation';
 import notifee from '@notifee/react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const Home = ({ route, navigation }) => {
@@ -70,7 +71,7 @@ const Home = ({ route, navigation }) => {
         <Text style={{color:'black'}}>Email : {info.email}</Text>
         <Text style={{color:'black'}}>Score : {info.score}</Text>
         <Text style={{color:'black'}}>Address :{info.address}</Text>
-        <Text style={{color:'black'}}>Id : {info.id}</Text>
+        <Text style={{color:'black'}}>DeviceId : {info.id}</Text>
 
         <TextInput
           style={{ height: 50, width: 100, borderWidth: 1, color: 'black' }}
