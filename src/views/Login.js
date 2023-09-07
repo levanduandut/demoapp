@@ -1,25 +1,33 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import {
   View,
   StyleSheet,
   ImageBackground,
   SafeAreaView,
   Dimensions,
-  Text,
+  Text, 
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import { useSelector } from 'react-redux';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
+  const info = useSelector(state => state.personalInfo);
   const [email, setEmail] = useState('');
+  useEffect(() => {
+    if (info.email) {
+      navigation.navigate('HomeTabs');
+    }
+  }, [info])
   return (
     <ImageBackground
-      style={{height: '100%', width: '100%'}}
+      style={{ height: '100%', width: '100%' }}
       source={require('../images/images.jpeg')}>
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
         <View
           style={{
             height: '100%',
@@ -41,7 +49,7 @@ const Login = ({navigation}) => {
                 alignItems: 'center',
                 justifyContent: 'space-between',
               }}>
-              <Text style={{color: 'white', top: 10}}>Email</Text>
+              <Text style={{ color: 'white', top: 10 }}>Email</Text>
               <TextInput
                 value={email}
                 onChangeText={setEmail}
@@ -67,7 +75,7 @@ const Login = ({navigation}) => {
                 alignItems: 'center',
                 justifyContent: 'space-between',
               }}>
-              <Text style={{color: 'white', top: 10}}>Password</Text>
+              <Text style={{ color: 'white', top: 10 }}>Password</Text>
               <TextInput
                 secureTextEntry
                 autoCapitalize="none"
@@ -107,7 +115,7 @@ const Login = ({navigation}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <Text style={{color: 'white', fontWeight: 'bold'}}>
+              <Text style={{ color: 'white', fontWeight: 'bold' }}>
                 Đăng nhập
               </Text>
             </TouchableOpacity>
@@ -123,7 +131,7 @@ const Login = ({navigation}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <Text style={{color: 'white', fontWeight: 'bold'}}>Đăng ký</Text>
+              <Text style={{ color: 'white', fontWeight: 'bold' }}>Đăng ký</Text>
             </TouchableOpacity>
           </View>
         </View>

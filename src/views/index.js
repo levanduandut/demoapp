@@ -10,10 +10,17 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Provider } from 'react-redux';
 import { store, persistor } from '../redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Anim from './animation';
 import Anim2 from './animation2';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+
+const tabBarIconComponent = (iconName, color) => (
+  <Icon name={iconName} color={color} size={20} />
+);
+
 function MyTabs() {
   return (
     <Tab.Navigator
@@ -24,48 +31,41 @@ function MyTabs() {
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: () => {
-            <Icon name="rocket" size={30} color="#900" />;
-          },
+          tabBarIcon: ({ color }) => tabBarIconComponent('laptop', color),
         }}
       />
       <Tab.Screen
         name="Settings"
         component={Setting}
         options={{
-          tabBarIcon: () => {
-            <Icon name="rocket" size={30} color="#900" />;
-          },
+          tabBarIcon: ({ color }) => tabBarIconComponent('laptop', color),
         }}
       />
       <Tab.Screen
         name="Anim"
         component={Anim}
         options={{
-          tabBarIcon: () => {
-            <Icon name="rocket" size={30} color="#900" />;
-          },
+          tabBarIcon: ({ color }) => tabBarIconComponent('laptop', color),
         }}
       />
       <Tab.Screen
         name="Anim2"
         component={Anim2}
         options={{
-          tabBarIcon: () => {
-            <Icon name="rocket" size={30} color="#900" />;
-          },
+          tabBarIcon: ({ color }) => tabBarIconComponent('laptop', color),
         }}
       />
     </Tab.Navigator>
   );
 }
 export default RootComponent = function () {
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
           <Stack.Navigator
-            initialRouteName="HomeTabs"
+            initialRouteName="Login"
             screenOptions={{
               headerShown: false,
             }}>

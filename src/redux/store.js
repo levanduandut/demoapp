@@ -18,7 +18,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 const middleware = [thunk];
 
 // Tạo Redux store với reducer đã tích hợp Redux Persist
-export const store = createStore(
+export const store = createStore( 
   persistedReducer,
   applyMiddleware(...middleware),
 );  

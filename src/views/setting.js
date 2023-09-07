@@ -54,10 +54,10 @@ const Setting = ({navigation}) => {
           }}>
           <Text style={{color: 'white', fontWeight: 'bold'}}>Đăng xuất</Text>
         </TouchableOpacity>
-        <Text>Email : {info.email}</Text>
-        <Text>Score : {info.score}</Text>
-        <Text>Address :{info.address}</Text>
-        <Text>Id : {info.id}</Text>
+        <Text style={{color:'black'}}>Email : {info.email}</Text>
+        <Text style={{color:'black'}}>Score : {info.score}</Text>
+        <Text style={{color:'black'}}>Address :{info.address}</Text>
+        <Text style={{color:'black'}}>Id : {info.id}</Text>
       </View>
     </SafeAreaView>
   );
