@@ -9,6 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Provider } from 'react-redux';
 import { store, persistor } from '../redux/store';
+import Toast from 'react-native-toast-message'
 import { PersistGate } from 'redux-persist/integration/react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Anim from './animation';
@@ -73,6 +74,7 @@ export default RootComponent = function () {
             <Stack.Screen name="HomeTabs" component={MyTabs} />
           </Stack.Navigator>
         </NavigationContainer>
+        <Toast />
       </PersistGate>
     </Provider>
   );
