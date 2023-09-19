@@ -130,6 +130,7 @@ const Login = ({navigation}) => {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={() => navigation.navigate('Register')}
               style={{
                 backgroundColor: '#2488a6',
                 marginTop: 10,

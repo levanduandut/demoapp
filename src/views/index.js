@@ -14,6 +14,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Anim from './animation';
 import Anim2 from './animation2';
+import Register from './register';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -70,6 +71,7 @@ export default RootComponent = function () {
             screenOptions={{
               headerShown: false,
             }}>
+               <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="HomeTabs" component={MyTabs} />
           </Stack.Navigator>
